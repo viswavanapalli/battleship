@@ -1,8 +1,7 @@
 package com.game.repository;
 
 
-import com.game.entity.User;
-import com.game.entity.game.Player;
+import com.game.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;

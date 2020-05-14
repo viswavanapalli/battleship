@@ -9,15 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class GameModel {
-
-    private String userId1;
-
-    private String userId2;
-
-    private String playerId1;
-
-    private String playerId2;
-
-    private String gameId;
+public class CreateGameModel {
+    private String player1UserId;
+    private String player2UserId;
 }

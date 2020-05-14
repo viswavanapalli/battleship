@@ -1,13 +1,13 @@
 package com.game.service;
 
-import com.game.model.GameModel;
+import com.game.model.CreateGameModel;
 
 public interface GameService {
-    public void createGame(GameModel gameModel);
+    public void createGame(CreateGameModel createGameModel);
 
-    public void startGame(GameModel gameModel);
-
-    public void endGame(GameModel gameModel);
-
-    public void pauseGame(GameModel gameModel);
+//    public void startGame(GameModel gameModel);
+//
+//    public void endGame(GameModel gameModel);
+//
+//    public void pauseGame(GameModel gameModel);
 }

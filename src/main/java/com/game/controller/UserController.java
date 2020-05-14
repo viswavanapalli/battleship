@@ -12,7 +12,7 @@ public class UserController {
 
     private UserService userService = new UserServiceImpl();
 
-    public void registerUser(String playerMetaData, Map<Parameter, String> requestParams){
+    public void registerUser(Map<Parameter, String> requestParams){
         UserModel userModel = BattleshipUtils.getUserModelFromParameters(requestParams);
         userService.registerUser(userModel);
     }

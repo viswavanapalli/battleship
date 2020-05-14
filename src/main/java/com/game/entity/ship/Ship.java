@@ -17,13 +17,15 @@ public abstract class Ship {
     private ShipCategory shipCategory;
     private Location location;
     private Alignment alignment;
-    public static int shipCounter;
 
     public Ship(ShipCategory shipCategory, Location location, Alignment alignment){
-        this.shipId = shipCounter++;
         this.shipCategory = shipCategory;
         this.location = location;
         this.alignment = alignment;
+    }
+
+    public Ship(ShipCategory shipCategory){
+        this.shipCategory = shipCategory;
     }
 
 }

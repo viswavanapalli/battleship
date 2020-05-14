@@ -10,4 +10,7 @@ public class Carrier extends Ship {
         super(ShipCategory.CARRIER, location, alignment);
     }
 
+    public Carrier(){
+        super(ShipCategory.CARRIER);
+    }
 }

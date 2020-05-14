@@ -28,44 +28,36 @@ public class BattleshipApplication {
     public static void initialSetup(){
         for(int i = 0; i<Constants.bootstrapQueries.length; i++){
             System.out.println("For query : "+ Constants.bootstrapQueries[i]);
-            String[] queryData = Constants.bootstrapQueries[i].split(",");
-            String playerMetadata = queryData[0];
-            String playerInput = queryData[1];
-            executeCommand(playerMetadata, playerInput);
+            executeCommand(Constants.bootstrapQueries[i]);
         }
     }
 
-    public static void executeCommand(String playerMetadata, String playerInput) {
-        Map<Parameter, String> requestParams = BattleshipUtils.getParameterValues(playerInput);
+    public static void executeCommand(String query) {
+        Map<Parameter, String> requestParams = BattleshipUtils.getParameterValues(query);
         Command command = valueOf(requestParams.get(Parameter.COMMAND));
         switch(command){
             case REGISTER_USER :
-                userController.registerUser(playerMetadata, requestParams);
+                userController.registerUser(requestParams);
                 break;
             case CREATE_GAME:
-                gameController.createGame(playerMetadata, requestParams);
+                gameController.createGame(requestParams);
                 break;
             case START_GAME:
-                gameController.startGame(playerMetadata, requestParams);
+                gameController.startGame(requestParams);
                 break;
             case END_GAME:
-                gameController.endGame(playerMetadata, requestParams);
+                gameController.endGame(requestParams);
                 break;
             case PAUSE_GAME:
-                gameController.pauseGame(playerMetadata, requestParams);
+                gameController.pauseGame(requestParams);
+                break;
+            case CREATE_SHIP:
+                playController.createShip(requestParams);
                 break;
             case TARGET:
-                playController.target(playerMetadata, requestParams);
+                playController.target(requestParams);
                 break;
         }
     }
 }
 
-
-//REGISTER_USER,
-//        CREATE_GAME,
-//        CREATE_SHIP,
-//        START_GAME,
-//        END_GAME,
-//        PAUSE_GAME,
-//        TARGET

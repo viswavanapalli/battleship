@@ -1,4 +1,4 @@
-package com.game.entity.game;
+package com.game.entity;
 
 import com.game.enums.GameStatus;
 import lombok.AllArgsConstructor;
@@ -6,20 +6,22 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Game {
     private int id;
-    private List<Player> players;
+    private Player player1;
+    private Player player2;
     private GameStatus gameStatus;
-    private static int gameCounter;
+    private Player winner;
+    private int turnId;
 
-    Game(List<Player> players){
-
+    Game(Player player1, Player player2){
+        this.player1 = player1;
+        this.player2 = player2;
+        turnId = player1.getId();
     }
 
     public void setup(){
