@@ -8,6 +8,7 @@ import com.game.enums.Parameter;
 import com.game.utils.BattleshipUtils;
 
 import java.util.Map;
+import java.util.Scanner;
 
 import static com.game.enums.Command.*;
 
@@ -58,6 +59,26 @@ public class BattleshipApplication {
                 playController.target(requestParams);
                 break;
         }
+    }
+
+    public static void commandLineInputs(){
+        Scanner scanner = new Scanner(System.in);
+        String inputQuery;
+        do{
+            System.out.println("-------------------------Enter Input Query here-------------------------");
+            inputQuery = scanner.nextLine();
+            if(inputQuery!= null && inputQuery.equals("exit"))
+                continue;
+            try{
+                if(inputQuery != null && inputQuery.trim()!=""){
+                    System.out.println("For query : "+ inputQuery);
+                        executeCommand(inputQuery);
+                }
+            } catch(Exception e){
+                System.out.println("Error executing query " + inputQuery);
+                e.printStackTrace();
+            }
+        } while(!inputQuery.equals("exit"));
     }
 }
 
